@@ -1,0 +1,273 @@
+programa
+{
+	inclua biblioteca Util --> u
+	inteiro sorteios[51]
+
+	funcao inicio()
+	{
+		escreva("==========================", "\n")
+		escreva("===> Escolha um jogo! <===", "\n")
+		escreva("====> 1- Lotomania  <=====", "\n")
+		escreva("====> 2- Mega-Sena  <=====", "\n")
+		escreva("======> 3- Quina  <=======", "\n")
+		escreva("=====> 4- Lotofácil <=====", "\n")
+		escreva("==========================", "\n")
+		menu()
+	}
+
+	funcao menu(){
+		inteiro opcao
+		leia(opcao)
+		escolha(opcao){
+
+		 caso 0:
+		 pare
+		 
+		 caso 1:lotomania()
+		 pare
+
+		 caso 2: megaSena()
+		 pare
+
+		 caso 3:quina()
+
+		 pare
+		 
+		 caso 4:lotofacil()
+		 pare
+		 
+		 caso contrario: escreva("=======*Opção Inválida*========", "\n")
+					  escreva("==*Escolha uma opção correta*==")
+		inicio()
+
+	}
+	}
+
+	funcao megaSena(){
+
+		inteiro numero
+		inteiro jogos 
+		real custoJogos
+
+		const real precos[20] = {0.0, 0.0, 0.0, 0.0, 0.0, 4.50, 31.51, 126.00, 378.00, 945.00, 2079.00, 4158.00, 7722.00, 13510.50, 22522.50, 36036.00, 55692.00, 83538.00, 122094.00, 174420.00}
+
+		const inteiro MENOR = 1
+		const inteiro MAIOR = 60
+		const inteiro MIN = 6	
+		const inteiro MAX = 20
+
+		escreva("Informe quantos números serão sorteados.", "\n")
+		leia(numero) 
+
+		enquanto(numero<6 ou numero >20){
+			escreva("Quantidade inválida. Informe quantos números serão sorteados.", "\n")
+		}
+
+		escreva("Informe a quantidade de jogos que você quer fazer.", "\n")
+		leia(jogos)
+
+		para(inteiro i=0; i < jogos; i++){
+			escreva("\n\nSorteios : ", i+1, "\n\n")
+
+			sorteiaDezenas(numero, MENOR, MAIOR)
+			ordenarLista(numero)
+			mostrar(numero)
+
+		}
+
+		custoJogos = jogos * precos[numero]
+		escreva("Total de apostas custou: R$", custoJogos)
+
+	}
+
+	funcao quina(){
+     	inteiro numero
+		inteiro jogos 
+		real custoJogos
+		const real precos[15] = {0.0, 0.0, 0.0, 0.0, 2.00, 12.00, 42.00, 112.00, 252.00, 504.00, 924.00, 1584.00, 2574.00, 4004.00, 6006.00 }
+		const inteiro MENOR = 1
+		const inteiro MAIOR = 80
+		const inteiro MIN = 5
+		const inteiro MAX = 15
+
+		escreva("Informe quantos números serão sorteados.", "\n")
+		leia(numero) 
+
+		enquanto(numero<5 ou numero >15){
+			escreva("Quantidade inválida. Informe quantos números serão sorteados.", "\n")
+
+		}
+
+		escreva("Informe a quantidade de jogos que você quer fazer.", "\n")
+		leia(jogos)
+
+		para(inteiro i=0; i < jogos; i++){
+			escreva("\n\nSorteios : ", i+1,"\n\n")
+
+		sorteiaDezenas(numero, MENOR, MAIOR)
+		ordenarLista(numero)
+		mostrar(numero)
+
+		}
+
+		custoJogos = jogos * precos[numero]
+		escreva("Total de apostas custou: R$", custoJogos)
+
+     	para(inteiro i=0; i<= numero; i++){
+			sorteios[i]=u.sorteia(1,80)
+
+	    }
+	    mostrar(numero)
+
+	}
+
+		
+
+	funcao lotomania (){
+
+		inteiro numero
+		inteiro jogos 
+		real custoJogos
+		real preco = 2.50
+		const inteiro MENOR = 1
+		const inteiro MAIOR = 50
+		const inteiro MIN = 0
+		const inteiro MAX = 20
+
+		escreva("Informe quantos números serão sorteados.", "\n")
+		leia(numero) 
+
+
+
+		enquanto(numero<0 ou numero >50){
+			escreva("Quantidade inválida. Informe quantos números serão sorteados.", "\n")
+
+		}
+
+
+
+		escreva("Informe a quantidade de jogos que você quer fazer.", "\n")
+		leia(jogos)
+
+
+
+		para(inteiro i=0; i < jogos; i++){
+			escreva("\n\nSorteios : ", i+1, "\n\n")
+
+		sorteiaDezenas(numero, MENOR, MAIOR)
+		ordenarLista(numero)
+		mostrar(numero)
+
+		}
+
+		custoJogos = jogos * preco
+		escreva("Total de apostas custou: R$", custoJogos)
+
+		para(inteiro i=0; i<=50; i++){
+			sorteios[i]=u.sorteia(1,100)
+	    }
+	    mostrar(numero)
+
+	  }
+
+	funcao lotofacil (){
+		inteiro numero
+		inteiro jogos 
+		real custoJogos
+		const real precos = 2.50
+		const inteiro MENOR = 1
+		const inteiro MAIOR = 25
+		const inteiro MIN = 15
+		const inteiro MAX = 20
+
+		escreva("Informe quantos números serão sorteados.", "\n")
+		leia(numero) 
+
+		enquanto(numero<15 ou numero >20){
+			escreva("Quantidade inválida. Informe quantos números serão sorteados.", "\n")
+
+		}
+
+		escreva("Informe a quantidade de jogos que você quer fazer.", "\n")
+		leia(jogos)
+
+		para(inteiro i=0; i < jogos; i++){
+			escreva("Sorteios : ", i+1)
+
+		sorteiaDezenas(numero, MENOR, MAIOR)
+		ordenarLista(numero)
+		mostrar(numero)
+		}
+
+		custoJogos = jogos * precos
+		
+		escreva("Total de apostas custou: R$", custoJogos)
+
+		para(inteiro i=0; i<= numero; i++){
+			sorteios[i]=u.sorteia(1,25)
+			}
+
+		mostrar(numero)
+
+	}
+
+	funcao ordenarLista(inteiro qntdDezenas){
+		inteiro aux
+		
+	 	para(inteiro j=0; j < qntdDezenas - 1; j++){
+		para(inteiro i=0; i < qntdDezenas - 1 - j; i++){
+			se(sorteios[i] > sorteios[i+1]){
+				aux = sorteios[i]
+				sorteios[i] = sorteios[i + 1]
+				sorteios[i +1 ] = aux
+				}
+
+			}
+
+		}
+
+
+
+	}
+
+		
+
+		
+
+	funcao mostrar(inteiro numero) {
+
+		ordenarLista(numero)
+
+		para(inteiro i=0; i < numero; i++){
+			escreva(sorteios[i]," - ")
+
+		}
+
+	}
+
+	funcao sorteiaDezenas(inteiro dezenas, inteiro min, inteiro max){
+
+		inteiro sorteado = 0
+		logico estaRepetindo = falso
+
+		para(inteiro i=0; i < dezenas; i++){
+			estaRepetindo = falso
+			sorteado = sorteia(min,max)
+			para(inteiro j=0; j < dezenas; j++){
+				se(sorteios[j] == sorteado){
+					estaRepetindo = verdadeiro
+					pare
+				}
+			}
+	
+			se(nao estaRepetindo){
+				sorteios[i] = sorteado
+			} senao {
+				i--	
+			}
+
+		}
+
+	}	
+}
+
